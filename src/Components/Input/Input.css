@@ -1,0 +1,36 @@
+
+.drag-drop-zone {
+    margin-top: 3rem;
+    background-color: rgb(131, 201, 224);
+    box-shadow: 3px 3px 3px purple;
+    padding: 45px; 
+    border-radius: 50px;
+}
+
+.drag-drop-zone_dragged {
+    margin-top: 3rem;
+    background-color: rgb(90, 198, 234);
+    box-shadow: 0 0 3px purple;
+    padding: 45px;
+    transform: scale(.95);
+    border-radius: 50px;
+    filter: blur(.6px)
+    
+}
+
+.drag-drop-zone_dragged .child-elements {
+    pointer-events: none;
+  }
+
+.drag-drop-zone .child-elements {
+    pointer-events: none;
+}
+
+p {
+    pointer-events: none;
+    margin-top: 0px;
+}
+
+img {
+    pointer-events: none;
+}
