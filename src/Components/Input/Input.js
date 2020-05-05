@@ -9,11 +9,39 @@ class Input extends React.Component {
     const {data, dispatch} = this.props; 
 
     let zoneClass = 'drag-drop-zone'
+  
 
     const handleDrop = e => {
       e.preventDefault();
       e.stopPropagation();
+      e.target.className = zoneClass;
+
+      
+
+      let files = e.dataTransfer.files
+      const formData = new FormData()
+      formData.append('file', files[0])
+
+      console.log("The file is ", formData);
+      
+      return fetch("http://localhost:3001/upload", {
+      method: 'POST',
+      body: formData
+      })
+      .then(response => response)
+      .then(data => console.log("The data is", data));
+      
+      //return setTimeout(handleUpload(file),1000);
     }
+
+    // const handleUpload = (file) => {
+    //   fetch("http://localhost:3001/upload", {
+    //   method: 'POST',
+    //   body: JSON.stringify(file)
+    //   })
+    //   .then(response => response)
+    //   .then(data => console.log("The data is", data));
+    // }
 
     const handleDragOver = e => {
       e.preventDefault();
@@ -33,7 +61,6 @@ class Input extends React.Component {
     const handleDragLeave = e => {
       e.stopPropagation();
       if (e.target.id === 'box'){
-        console.log(e.target)
         e.target.className = zoneClass;}
         
       e.preventDefault();

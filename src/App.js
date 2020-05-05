@@ -23,10 +23,12 @@ function App() {
     reducer, {dropDepth: 0, inDropZone: false, fileList: []}
   );
 
+
   return (
     <div className="App">
       <header className="App-header">
-        <p>Faaaart</p>
+        <h1>Truth is Dead.</h1>
+        <h2>Use the Hyperbolator instead.</h2>
         <Dial /> 
       <Input data = {data} dispatch = {dispatch}/>
       </header>
