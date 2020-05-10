@@ -39,9 +39,9 @@ Pretty simple, huh? Only major issue is that Html-docx-js has some security vuln
 - Make the drag-n-drop typeable, too (?)
     - Is this possible?
 
-- Get data from slider, scale it into 5 increments
+- Get data from slider, scale it into 5 increments  :white_check_mark:
 
-- Create a "Hyperbolate" (submit) button that fires the function
+- Create a "Hyperbolate" (submit) button that fires the function  :white_check_mark:
 
 - How to return file? As a DL or displayed? Both?
 
