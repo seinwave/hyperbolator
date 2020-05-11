@@ -29,9 +29,12 @@ function App() {
 
   const startHyperbolation = (level) => {
     console.log("You clicked hyperbolate at level ", data.hyperLevel)
-    //fetch('http://localhost:3001')
-    //Send the level to the API
-    //Execute an exaggeration level based on the level
+    
+    fetch(`http://localhost:3001/${data.hyperLevel}`, {
+      method: 'POST'
+  })
+    .then(resp => resp.json)
+    .then(data => console.log(data))
   }
 
 
