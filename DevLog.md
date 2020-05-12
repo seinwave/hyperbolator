@@ -75,7 +75,7 @@ First step is to build the routes / controllers, and have them log something sim
 
 #### Post(a)
 
-Nice! Got unit tests up and running. It was -- ahem, as always -- slightly more complicated than I thought.
+Nice! Got unit tests up and running. It was -- *ahem*, as always -- slightly more complicated than I thought.
 
 I didn't realize that `Jest`, by itself, wasn't the easiest tool to use for mocking HTTP requests. `supertester` was the tool of the hour, which made things much easier.
 
