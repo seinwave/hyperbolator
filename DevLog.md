@@ -88,7 +88,20 @@ By sequestering the API functions into `app.js`, I gave the testing suite someth
 
 Thanks to [Rithm School](https://www.rithmschool.com/courses/intermediate-node-express/api-tests-with-jest) for that explanation.
 
+##### B - Uploading is a flat circle
 
+Okay, wow! Made some progress, but it's slow going. Didn't finish this task yet. Here's what I did, and what I need to accomplish.
+
+1. I have the `download` response working, upon clicking the Hyperbolator button. 
+    - It even prompts the 'save' dialogue in the user's window. But the filename is messed up, because it's `resp.blob().`
+2. I have the `upload` response working, along with access to the `file-name`.
+
+What I NEED to do is:
+
+1. Connect the `upload` and `download` paths -- what the user uploads needs to be what they download. (Hence the flat circle)
+2. Solve the filename / dialogue issue. I need to get it so that the filename in the `save prompt` matches the user's expectations.
+
+For tomorrow, then!
 
 
 ### 5.11.20

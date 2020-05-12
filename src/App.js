@@ -35,6 +35,18 @@ function App() {
   })
     .then(resp => resp.json)
     .then(data => console.log(data))
+
+    fetch(`http://localhost:3001/download`, {
+      method: 'GET'
+  })
+    .then(resp => resp.blob())
+    .then(blob => URL.createObjectURL(blob))  // fires the save dialogue, but fucks up the filename
+    .then(url => {
+      window.open(url, '_blank');
+      URL.revokeObjectURL(url);
+    })
+    
+    
   }
 
 
