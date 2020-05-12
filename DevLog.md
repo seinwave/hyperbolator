@@ -57,23 +57,15 @@ Pretty simple, huh? Only major issue is that Html-docx-js has some security vuln
 
 #### Pre
 
+##### A - Unit tests
+
 Today I want to set up some tests for my API routes. Nothing too crazy. But since I shoe-horned CircleCI into my app yesterday, it'd be nice for it to have something to run on. 
 
 For now, the tests will be very very basic, and will evolve as the app does. Goal right now is just to get the reps in on working with Jest. 
 
 #### Post
 
-
-
-### 5.11.20
-
-#### Pre(a)
-
-Alright, now that I'm moving the data around the way I want, it's time to use that data to invoke the correct function on the API side. I think the way to do that is with query string parameters?
-
-First step is to build the routes / controllers, and have them log something simple. Then I'll figure out what I want to do with them.
-
-#### Post(a)
+##### A - Unit tests
 
 Nice! Got unit tests up and running. It was -- *ahem*, as always -- slightly more complicated than I thought.
 
@@ -86,6 +78,17 @@ Why? Because when everything was in `server.js`, the server would spin up before
 By sequestering the API functions into `app.js`, I gave the testing suite something to work on BEFORE the server ever deploys.
 
 Thanks to [Rithm School](https://www.rithmschool.com/courses/intermediate-node-express/api-tests-with-jest) for that explanation.
+
+
+
+
+### 5.11.20
+
+#### Pre
+
+Alright, now that I'm moving the data around the way I want, it's time to use that data to invoke the correct function on the API side. I think the way to do that is with query string parameters?
+
+First step is to build the routes / controllers, and have them log something simple. Then I'll figure out what I want to do with them.
 
 #### Post
 
