@@ -61,7 +61,16 @@ Pretty simple, huh? Only major issue is that Html-docx-js has some security vuln
 
 Today I want to set up some tests for my API routes. Nothing too crazy. But since I shoe-horned CircleCI into my app yesterday, it'd be nice for it to have something to run on. 
 
-For now, the tests will be very very basic, and will evolve as the app does. Goal right now is just to get the reps in on working with Jest. 
+For now, the tests will be very very basic, and will evolve as the app does. Goal right now is just to get the reps in on working with Jest.
+
+##### B - Uploading is a flat circle
+
+Here's what I want to achieve:
+1. Upload a file on the front end.
+2. Receive it on the back end.
+3. Send back the file to DL on the front end.
+
+That's it. Just trying to wrap my head on the basic mechanics of this. Do I need a DB? Probably. But here's when I'll find out for sure. 
 
 #### Post
 
