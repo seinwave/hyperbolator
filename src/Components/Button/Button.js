@@ -5,7 +5,7 @@ import './Button.css'
 class Button extends React.Component {
     render(props) {
 
-        const {data, dispatch, startHyperbolation} = this.props;
+        const {data, startHyperbolation} = this.props;
 
         const level = data.hyperLevel;
 

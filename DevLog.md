@@ -18,7 +18,7 @@ Html-docx-js (translates HTML to doc/x)
 
 Pretty simple, huh? Only major issue is that Html-docx-js has some security vulnerabilities, which I need to figure out how to solve.
 
-## Running to-dos (5.11.20)
+## Running to-dos (5.13.20)
 
 #### Backend 
 - Design / Build API routes
@@ -52,6 +52,68 @@ Pretty simple, huh? Only major issue is that Html-docx-js has some security vuln
 
 
 ## The Log
+
+### 5.13.20
+
+#### Pre
+
+Today, I will be solving the problems I created for myself yesterday. Here's what I believe I need to do, *in the order I believe I need to do it in*:
+
+1. Get the user's uploaded file into a `temp` or `uploads` folder.
+2. Get the `/download` path to read the file from the `temp` / `uploads` folder
+3. Get the downloaded file's `filename` in fuckin' English. 
+
+I have a feeling this will take me a while. 
+
+But I learned yesterday that, whenever I run into a stumbling block, my first impulse is to scout around for a blog post or a YouTube video that's going to hold my hand through the process.
+
+No. Stop that, Matthew.
+
+The *first* place I need to look is the documentation for the software tools at hand. 
+
+In many cases, that documentation is better-organized / better-written than the warmed-over methods / recipes you find in blog posts.
+
+Reading the docs first is also how I'll build a deeper / more comprehensive knowledge of the tools I'm using. It's direct contact with the thing-in-itself. Next best thing to reading code. Reading blog posts *about* documentation won't get me there. 
+
+And, finally, reading documentation is a skill in itself. Something I should practice.
+
+So, that said, I will *start* today's problem solving by looking at the `formidable` documentation, and at whatever documentation I can find to explain how `fetch()` works on a `blob()`. 
+
+#### Post
+
+Wow. That was MUCH harder than I thought it was going to be.
+
+To review, my goals were: 
+
+1. Get the user's uploaded file into a `temp` or `uploads` folder.
+2. Get the `/download` path to read the file from the `temp` / `uploads` folder
+3. Get the downloaded file's `filename` in fuckin' English. 
+
+Of those, (1) was actually pretty easy. And, I'm thrilled to say I found the answer by perusing (and yes, I'm using that word [correctly](https://www.google.com/search?client=firefox-b-1-d&q=perusing+dictionary)) the `formidable` documentation.
+
+Helped me feel like a real coder.
+
+Good thing step (2) was here to humble me. That took SO long!
+
+`Express`'s documentation on the `res.download` method was very helpful. But I had the craziest time getting the file from the `upload` into my front-end's `state`, and then moving it from the `state` into the `download` fetch request.
+
+Seriously took me all morning.
+
+Part of it was because I forget to pass the filepath through `JSON.stringify()` upon uploading. Part of it was because I didn't know to modify the headers on my download `fetch()` request. (Thanks to [this GH thread](https://github.com/github/fetch/issues/323) for that tip). And part of it was because I forgot that my uploaded `fileList` was an ARRAY of file paths -- not the string of a single file path.
+
+With those kinks worked out, everything's going okay.
+
+I can upload a file. Click a button. Download the same file. Reliably. That's huge, for me.
+
+NOW my issue is a memory / data one: these files keep getting uploaded, and my upload folder keeps getting bigger and bigger. So problems to solve are:
+
+1. How to purge files from upload folder? (Guessing: "use DBs!" will be the answer here.)
+2. How to clear files from my `fileList` array, without totally screwing up the frontend? (For some reason, the `Button.js` won't render if I try to modify the state...)
+
+For tomorrow!
+
+
+
 
 ### 5.12.20
 

@@ -20,6 +20,8 @@ function App() {
         return {...state, fileList: state.fileList.concat(action.files)}
       case 'SET_HYPERBOLATION':
         return {...state, hyperLevel: action.hyperLevel};
+      case 'RESET_FILE_LIST':
+        return {...state, fileList: []};
     };
   };
 
@@ -27,8 +29,11 @@ function App() {
     reducer, {hyperLevel: 0, dropDepth: 0, inDropZone: false, fileList: []}
   );
 
-  const startHyperbolation = (level) => {
+  const startHyperbolation = () => {
     console.log("You clicked hyperbolate at level ", data.hyperLevel)
+    const file = data.fileList[(data.fileList.length)-1]  // this just keeps adding stuff to the fileList...need to purge it every upload...
+
+    console.log("File is ", file)
     
     fetch(`http://localhost:3001/${data.hyperLevel}`, {
       method: 'POST'
@@ -36,8 +41,11 @@ function App() {
     .then(resp => resp.json)
     .then(data => console.log(data))
 
-    fetch(`http://localhost:3001/download`, {
-      method: 'GET'
+    fetch("http://localhost:3001/download", {
+      headers: { 'Accept': 'application/json',
+      "Content-Type": 'application/json'},
+      method: 'POST',
+      body: JSON.stringify({file:file})
   })
     .then(resp => resp.blob())
     .then(blob => URL.createObjectURL(blob))  // fires the save dialogue, but fucks up the filename
@@ -45,7 +53,6 @@ function App() {
       window.open(url, '_blank');
       URL.revokeObjectURL(url);
     })
-    
     
   }
 

@@ -16,23 +16,20 @@ class Input extends React.Component {
       e.stopPropagation();
       e.target.className = zoneClass;
 
-      
-
       let files = e.dataTransfer.files
       const formData = new FormData()
       formData.append('file', files[0])
-
-      console.log("The file is ", formData);
       
       return fetch("http://localhost:3001/upload", {
       method: 'POST',
       body: formData
       })
-      .then(response => response)
-      .then(data => console.log("The data is", data));
+      .then(response => response.json())
+      .then(obj => data.fileList.push(obj))
+    }
       
       //return setTimeout(handleUpload(file),1000);
-    }
+
 
     // const handleUpload = (file) => {
     //   fetch("http://localhost:3001/upload", {
@@ -67,7 +64,7 @@ class Input extends React.Component {
       e.stopPropagation();
       dispatch({ type: 'SET_DROP_DEPTH', dropDepth: data.dropDepth - 1});
       if (data.dropDepth > 0) return;
-      dispatch({type: 'SET_IN_DROP_ZON', inDropZone: false})
+      dispatch({type: 'SET_IN_DROP_ZONE', inDropZone: false})
     }
 
       
