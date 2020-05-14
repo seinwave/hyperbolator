@@ -9,6 +9,9 @@ import Button from './Components/Button/Button';
 
 function App() {
   
+
+  const initialState = {hyperLevel: 0, dropDepth: 0, inDropZone: false, fileList: []}
+
   const reducer = (state, action) => {
     // eslint-disable-next-line default-case
     switch(action.type) {
@@ -20,18 +23,20 @@ function App() {
         return {...state, fileList: state.fileList.concat(action.files)}
       case 'SET_HYPERBOLATION':
         return {...state, hyperLevel: action.hyperLevel};
-      case 'RESET_FILE_LIST':
+      case 'EMPTY':
         return {...state, fileList: []};
     };
   };
 
   const [data, dispatch] = React.useReducer(
-    reducer, {hyperLevel: 0, dropDepth: 0, inDropZone: false, fileList: []}
+    reducer, initialState
   );
+
+  
 
   const startHyperbolation = () => {
     console.log("You clicked hyperbolate at level ", data.hyperLevel)
-    const file = data.fileList[(data.fileList.length)-1]  // this just keeps adding stuff to the fileList...need to purge it every upload...
+    const file = data.fileList[0]  // this just keeps adding stuff to the fileList...need to purge it every upload...
 
     console.log("File is ", file)
     
@@ -48,12 +53,19 @@ function App() {
       body: JSON.stringify({file:file})
   })
     .then(resp => resp.blob())
-    .then(blob => URL.createObjectURL(blob))  // fires the save dialogue, but fucks up the filename
-    .then(url => {
-      window.open(url, '_blank');
-      URL.revokeObjectURL(url);
-    })
+    .then(blob => {
+      var url = URL.createObjectURL(blob);
+      var a = document.createElement('a');
+      a.style = "display: none"
+      a.href = url;
+      a.download = "Your Hyperbolation.docx";
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+    }
+    )
     
+    dispatch({type: 'EMPTY'})
   }
 
 

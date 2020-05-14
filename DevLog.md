@@ -18,7 +18,7 @@ Html-docx-js (translates HTML to doc/x)
 
 Pretty simple, huh? Only major issue is that Html-docx-js has some security vulnerabilities, which I need to figure out how to solve.
 
-## Running to-dos (5.13.20)
+## Running to-dos (5.14.20)
 
 #### Backend 
 - Design / Build API routes
@@ -52,6 +52,73 @@ Pretty simple, huh? Only major issue is that Html-docx-js has some security vuln
 
 
 ## The Log
+
+### 5.14.20
+
+#### Pre
+
+Okay, yesterday was rough. A lot of wheel-spinning on the same, pretty small issue. I'm hoping today's a little better.
+
+To recap, what I want to achieve today is: 
+
+1. Empty the `uploads` folder between sessions on the backend.
+2. Reset the `fileList` array on the front-end, without messing up the app.
+
+Think I'll start with #2. And I'll start with the React documentation.
+
+Wish me luck.
+
+#### Post
+
+Good news on the #2 front -- figured it out! I was having two issues: 
+
+1. A typo in my `dispatch` function, of course. 
+2. I was defining my `initialState` within the `useReducer` function, when it's easier to manipulate if `initialState` is its own `const`. 
+
+Those problems solved, now the `fileList` empties out like I want!
+
+(Also, I cannot overstate the importance of using the React documentation / React devtools to figure this out. Way easier than searching for blog posts, and `console.log`ing everything.)
+
+AND good news on the #1 front! I know I said "Matt you're gonna use the documentation from now on", but this [stackoverflow](https://stackoverflow.com/questions/27072866/how-to-remove-all-files-from-directory-without-removing-directory-in-node-js) answer was just too elegant and perfect. 
+
+(Plus the fs documentation is...very long).
+
+I now have an `fs` function firing in my `/download` path that empties the `uploads` folder, as soon as the user gets their file.
+
+There's no interruption in the downloads, and the `uploads` directory stays manageably small!
+
+This gives me room for some...
+
+#### BONUS PROBLEM -- The filename issue
+
+Maybe with my extra time, I can figure out the `filename` issue from `5.12.20.`
+
+...which, I'm happy to report, I was successful with!
+
+Another [stackoverflow](https://stackoverflow.com/questions/32545632/how-can-i-download-a-file-using-window-fetch)-derived solution. But I legit think there's no way I would have figured this out, through any amount of documentation reading.
+
+At first, I tried to pass the `filename` as the second argument in the `/download` route's function, and then use `JSON.stringify()` the `/download` route's response, and use that to parse the filename from it. No dice.
+
+But the appending an invisible `a` element, with a `.download` `filename` that I designate, worked like a charm. 
+
+With that, my stable, "upload-is-a-flat-circle" project is now complete!
+
+
+#### BONUS PROBLEM #2 -- Mammoth?
+
+So, I realized that I made an ungenerous assumption about [Compromise](https://github.com/spencermountain/compromise) (the NLP engine on the backend of all this) -- that it can't parse word docxs. 
+
+But I never tested that assumption.
+
+I should probably figure that out BEFORE I install any possibly unnecessary third-party libraries, huh?
+
+- - - 
+
+Okay, I can report that, after testing, Compromise CANNOT handle docxs in the way I need. It works with text only, baby. 
+
+Wasted ~45m investigating that. Should've quit while I was ahead.
+
+Oh well. Still leaped some major hurdles today!
 
 ### 5.13.20
 
