@@ -120,6 +120,13 @@ Wasted ~45m investigating that. Should've quit while I was ahead.
 
 Oh well. Still leaped some major hurdles today!
 
+
+#### For tomorrow:
+
+1. Install `mammoth` and `compromomise` on the backend. 
+2. Get downloaded file altered, based on the `hyperbolation` level. 
+    - Some easy, mock alteration -- like changing all nouns to 6 or something.
+
 ### 5.13.20
 
 #### Pre
