@@ -40,13 +40,13 @@ function App() {
 
     console.log("File is ", file)
     
-    fetch(`http://localhost:3001/${data.hyperLevel}`, {
-      method: 'POST'
-  })
-    .then(resp => resp.json)
-    .then(data => console.log(data))
+  //   fetch(`http://localhost:3001/${data.hyperLevel}`, {
+  //     method: 'POST'
+  // })
+  //   .then(resp => resp.json)
+  //   .then(data => console.log(data))
 
-    fetch("http://localhost:3001/download", {
+    fetch(`http://localhost:3001/${data.hyperLevel}`, {
       headers: { 'Accept': 'application/json',
       "Content-Type": 'application/json'},
       method: 'POST',
@@ -58,7 +58,7 @@ function App() {
       var a = document.createElement('a');
       a.style = "display: none"
       a.href = url;
-      a.download = "Your Hyperbolation.docx";
+      a.download = "Your Hyperbolation.txt";
       document.body.appendChild(a);
       a.click();
       a.remove();

@@ -53,6 +53,39 @@ Pretty simple, huh? Only major issue is that Html-docx-js has some security vuln
 
 ## The Log
 
+
+### 5.15.20
+
+#### Pre
+
+Lord save me, I think I'm going to attempt some TDD.
+
+I'm going to start by fashioning some unit tests for each of my `hyperbolation` routes. Very basic. Upon `req`, they should return a file. That's it.
+
+Then I'll make those tests, so help me god.
+
+After that, I'll toss in some simple `compromise` functions to make them distinct from one another.
+
+#### Post 
+
+Okay, full disclosure: I need to learn more about how to test HTTP requests.
+
+I'm going to move on to another task while I figure that out.
+
+Now, I'm just going to try and configure `handleh0` so that it modifies a simple text file. 
+
+#### Post 2
+
+Achieved! I have all of my `hyperbolator` routes altering simple text files, and returning the altered files to the user!
+
+Next step is to get them altering `docxs` -- which shouldn't be too bad.
+
+And from there, figuring out how to make the alterations meaningful.
+
+Tomorrow's Saturday, so -- till Sunday!
+
+- - - 
+
 ### 5.14.20
 
 #### Pre
@@ -112,7 +145,7 @@ But I never tested that assumption.
 
 I should probably figure that out BEFORE I install any possibly unnecessary third-party libraries, huh?
 
-- - - 
+#### Post-Bonus #2
 
 Okay, I can report that, after testing, Compromise CANNOT handle docxs in the way I need. It works with text only, baby. 
 
@@ -126,6 +159,8 @@ Oh well. Still leaped some major hurdles today!
 1. Install `mammoth` and `compromomise` on the backend. 
 2. Get downloaded file altered, based on the `hyperbolation` level. 
     - Some easy, mock alteration -- like changing all nouns to 6 or something.
+
+- - - 
 
 ### 5.13.20
 
@@ -187,7 +222,7 @@ NOW my issue is a memory / data one: these files keep getting uploaded, and my u
 For tomorrow!
 
 
-
+- - - 
 
 ### 5.12.20
 
@@ -239,6 +274,7 @@ What I NEED to do is:
 
 For tomorrow, then!
 
+- - - 
 
 ### 5.11.20
 
@@ -251,6 +287,8 @@ First step is to build the routes / controllers, and have them log something sim
 #### Post
 
 Success! And I got everything neatly split into controllers, too. That will help a LOT when it's time to design what the routes actually do, exaggeration-wise. Maybe tomorrow?
+
+- - - 
 
 ### 5.10.20
 
