@@ -18,7 +18,7 @@ Html-docx-js (translates HTML to doc/x)
 
 Pretty simple, huh? Only major issue is that Html-docx-js has some security vulnerabilities, which I need to figure out how to solve.
 
-## Running to-dos (5.14.20)
+## Running to-dos (5.17.20)
 
 #### Backend 
 - Design / Build API routes
@@ -30,7 +30,7 @@ Pretty simple, huh? Only major issue is that Html-docx-js has some security vuln
     - Exaggeration level 4
     - Exaggeration level 5
 
-- How to convert docx to doc, for Mammoth to work with?
+- ~How to convert docx to doc, for Mammoth to work with?~ (No need, Mammoth takes care of that for us.)
 
 - How to solve security issues (outdated lodash-merge as a dependency of HTML-docx-js.)
 
@@ -52,6 +52,31 @@ Pretty simple, huh? Only major issue is that Html-docx-js has some security vuln
 
 
 ## The Log
+
+### 5.17.20
+
+#### Pre
+
+Don't have as much time today. Too many chores. Going to be a little modest in my goals. 
+
+I want to figure out two things today, one directly related to this project and one not:
+
+1. Testing these API routes
+2. A markdown-to-blog platform, for my portfolio.
+
+I'll let you know how I do. 
+
+#### Post
+
+Aaay mission accomplished on #1!
+
+Got some meaningful (though not individuated) tests going for each of my API routes!
+
+The key was figuring out how to work with `supertest`, which I wasn't even looking at closely. The `request.post` method had a `send` property that I could use to include whatever I wanted -- including my `mockFile` for uploading. 
+
+Worked out great!
+
+- - - 
 
 
 ### 5.15.20
