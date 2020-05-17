@@ -76,6 +76,12 @@ The key was figuring out how to work with `supertest`, which I wasn't even looki
 
 Worked out great!
 
+One quick issue: CircleCI was yelling at me because, as the tests were running, the `/download` route was attempting to delete files from the upload folder. 
+
+But there *were* no files in the upload folder -- I was just using mocks to test!
+
+So I had to add a condition `if (files)` statement to `/download`, and that made things work just fine. 
+
 - - - 
 
 
