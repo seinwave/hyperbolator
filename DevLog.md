@@ -53,6 +53,39 @@ Pretty simple, huh? Only major issue is that Html-docx-js has some security vuln
 
 ## The Log
 
+### 5.18.20
+
+#### Pre
+
+At last, we arrive at the heart of the app. The routes are clear. But what's going to happen along the way?
+
+In other words: how, exactly, are we going to mutilate the user's text?
+
+My goals for today are:
+
+1. Figure out what my `mutilating functions` should be, based on what should happen at various levels of hyperbolation
+2. Block out my `mutilating functions` in pseudocode, structuring them so they're nice and functional
+3. Map the mutilating functions to appropriate `Compromise` calls. 
+
+This one will probably be a "more thinking, less coding" kind of day. Let's see how it goes!
+
+#### Post
+
+Not the most blistering pace of productivity today. But that's alright. Getting the pseudocode down is a major intellectual hurdle-clearing, imo.
+
+I don't think I have any more `mutilations` to design. At least, I can't come up with any more ideas at the moment. Maybe later.
+
+That's the beauty of modular design. I can always plug-n-play more ideas, as they come.
+
+Next steps are:
+- Actually write these functions
+    - Including gradations for each `hyperbolation` level (using 2nd argument?)
+- Work out the directory / importing structure
+- Populate the various arrays with people / institutions / etc. Maybe this is a case for JSON objects?
+- Testing!
+
+- - - 
+
 ### 5.17.20
 
 #### Pre
@@ -70,7 +103,7 @@ I'll let you know how I do.
 
 Aaay mission accomplished on #1!
 
-Got some meaningful (though not individuated) tests going for each of my API routes!
+Got some *meaningful* (though not individuated) tests going for each of my API routes!
 
 The key was figuring out how to work with `supertest`, which I wasn't even looking at closely. The `request.post` method had a `send` property that I could use to include whatever I wanted -- including my `mockFile` for uploading. 
 
@@ -80,7 +113,7 @@ One quick issue: CircleCI was yelling at me because, as the tests were running, 
 
 But there *were* no files in the upload folder -- I was just using mocks to test!
 
-So I had to add a condition `if (files)` statement to `/download`, and that made things work just fine. 
+So I had to add a condition `if (files)` statement to `/download`, and that shut CircleCI up. 
 
 - - - 
 
