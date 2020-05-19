@@ -53,6 +53,30 @@ Pretty simple, huh? Only major issue is that Html-docx-js has some security vuln
 
 ## The Log
 
+### 5.19.20
+
+#### Pre
+
+Nice to wake up with a clear place to start. 
+
+Time to write those `mutilator` functions. Some considerations before I start:
+
+1. I want them pretty functional -- modular, plug-n-play, testable.
+2. I want them to scale up or down with the hyperbolation level. Don't want to repeat myself. 
+3. The `mutilator` list is by no means exhaustive. I just don't have any more ideas at the moment. 
+
+Okay. One at a time, here we go!
+
+#### Post
+
+Okay, much slower going than I thought. Mostly because I'm trying to unit-test everything as I go. Which has been good, because helping me understand `Compromise`'s guts a bit better. 
+
+I can modify the text right now. But I can't *conditionally* modify it. And I'm not sure what the best solution for integrating localized changes (eg - a sentence has been modified because it has "more than" in it. How to work that back into the text? Possible solution -- Compromise's `replace()` methods?)
+
+Anyway. Not my fastest or most productive day. But making progress.
+
+- - - 
+
 ### 5.18.20
 
 #### Pre
