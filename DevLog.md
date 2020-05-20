@@ -53,6 +53,47 @@ Pretty simple, huh? Only major issue is that Html-docx-js has some security vuln
 
 ## The Log
 
+### 5.20.20
+
+#### Pre
+
+Right back to it, then! Figuring out these `mutilator` functions, getting them nice and tested.
+
+Think I should start by constructing pre- and post- mock bodies of text. Will make the test suite look a lot cleaner.
+
+And plus that will help me understand exactly what I want to have happen.
+
+To work!
+
+#### Post
+
+Took some work, but things are cookin' now!
+
+My issue was that I underestimated `Compromise`. It's much more comprehensive and powerful than I thought.
+
+Just look at how easy to read / write this function is:
+
+```
+const comparatorUp = (doc) => {
+    let content = nlp(doc)
+    content
+    .filter(s => {return s.has('more than')})
+    .numbers()
+    .add(3)
+    return content.text()
+}
+```
+
+It adds 3 to every number in every sentence that contains the phrase "more than." Brilliant!
+
+(PS - I love that I have working, meaningful tests for all these.)
+
+Next step is to scale this function (along with its counterpart, `comparatorDown`) along the `hyperbolator` levels.
+
+For tomorrow!
+
+- - -
+
 ### 5.19.20
 
 #### Pre
