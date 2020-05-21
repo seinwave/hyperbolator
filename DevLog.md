@@ -53,6 +53,36 @@ Pretty simple, huh? Only major issue is that Html-docx-js has some security vuln
 
 ## The Log
 
+### 5.21.20
+
+#### Pre
+
+With a firmer grasp of Compromise in hand, it's time to write the rest of the mutilators.
+
+I'll start with the test suite, then build out the functions. Like a good boy.
+
+Should be fun! Here we go!
+
+#### Post
+
+Started writing the `orgUp` mutilator, which replaces Organizations in a text with ${MorePrestigiousOrganizations}. Ran into a limitation with Compromise -- it was failing to detect several organizations I tested, including "University of Minnesota" and "NRC Health." May need to call attention to that on github.
+
+I may abandon the `orgUp` and `titleUp` functions for now, in favor of refining the number- and grammar-oriented functions.
+
+With the `numbers`, I need to:
+- Figure out more cases to apply a hyperbolation. %s. Citations. Etc.
+    - My gut tells me that, in most cases, exaggeration will be better applied in a POSITIVE direction, rather than a negative one. 
+        - How to detect the negative-exaggeration cases?
+- On the bright side, though, I did figure out how to apply a new hyperbolation to EACH number, rather than the same hyperbolation to ALL numbers. 
+    - AND I got it deployed on my first `hyperbolator` route!
+
+With the `grammars`, I need to:
+- Write my first damn function, and figure out how to test it.
+
+For tomorrow!
+
+- - - 
+
 ### 5.20.20
 
 #### Pre
