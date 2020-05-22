@@ -53,6 +53,17 @@ Pretty simple, huh? Only major issue is that Html-docx-js has some security vuln
 
 ## The Log
 
+### 5.22.20
+
+#### Pre
+
+Now to figure out other `numbers` cases: like percentages, negative comparisons, etc.
+
+Question: is Compromise smart enough to exclude dates from `numbers()`?
+
+Guess I'll find out!
+
+
 ### 5.21.20
 
 #### Pre
@@ -62,6 +73,17 @@ With a firmer grasp of Compromise in hand, it's time to write the rest of the mu
 I'll start with the test suite, then build out the functions. Like a good boy.
 
 Should be fun! Here we go!
+
+#### Post
+
+Hell yeah! Got the grammar functions scripted out, fixed the folder structure so I can import functions directly, TOTALLY sabotaged my unit tests -- but otherwise stuff is functioning pretty well.
+
+Now it's just a matter of fine tuning:
+1. Get the text output a little more human friendly
+2. Fix the CSS so my style isn't so "samey"
+3. Get it so we can export docx-to-docx, with formatting
+
+We're close, baby!
 
 #### Post
 
