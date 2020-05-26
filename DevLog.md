@@ -57,7 +57,19 @@ Pretty simple, huh? Only major issue is that Html-docx-js has some security vuln
 
 #### Pre
 
-As promised, I'm going to make that `upload` button actually do something. And I'm going to fiddle with the design until we arrive at something I'm happy with. 
+As promised, I'm going to make that `upload` button actually do something. And I'm going to fiddle with the design until we arrive at something I'm happy with. Not much functional complexity going into the work today -- but I'm not holding it against me. I'm working on my portfolio at the same time.
+
+#### 
+
+Done!
+
+Had to learn some stuff about `refs` in React, and my `onChangeFile` function could probably use some refactoring -- but it works. 
+
+Everything was accomplished in `Input.js`, after a modest amount of struggling. [This stack overflow answer](https://stackoverflow.com/questions/37457128/react-open-file-browser-on-click-a-div) was extremely helpful.
+
+Lesson learned today, though: I will NOT be doing any more CSS noodling until my functionality is up and running. Want to get those basics down, and 
+
+#### Post
 
 ### 5.25.20
 

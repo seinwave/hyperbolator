@@ -1,6 +1,5 @@
-button {
-    margin-top: 2rem;
+.hyper_button {
+    margin-top: .3rem;
     padding: 1rem;
-    border-radius: 25px;
     background-color: green 
 }

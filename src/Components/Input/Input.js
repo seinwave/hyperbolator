@@ -4,6 +4,12 @@ import './Input.css'
 
 
 class Input extends React.Component {
+  
+  constructor() {
+    super()
+    this.inputOpenFileRef = React.createRef()
+  }
+
     render(props) {
 
     const {data, dispatch} = this.props; 
@@ -28,17 +34,6 @@ class Input extends React.Component {
       .then(obj => data.fileList.push(obj))
     }
       
-      //return setTimeout(handleUpload(file),1000);
-
-
-    // const handleUpload = (file) => {
-    //   fetch("http://localhost:3001/upload", {
-    //   method: 'POST',
-    //   body: JSON.stringify(file)
-    //   })
-    //   .then(response => response)
-    //   .then(data => console.log("The data is", data));
-    // }
 
     const handleDragOver = e => {
       e.preventDefault();
@@ -67,13 +62,40 @@ class Input extends React.Component {
       dispatch({type: 'SET_IN_DROP_ZONE', inDropZone: false})
     }
 
+    const openFileDlg = () => {
+      this.inputOpenFileRef.current.click()
+
+    }
+
+    const onChangeFile = (e) => {
+      e.stopPropagation();
+      e.preventDefault();
+      var file = e.target.files[0];
+      console.log(file);
+      const formData = new FormData()
+      formData.append('file', file)
+      
+      return fetch("http://localhost:3001/upload", {
+      method: 'POST',
+      body: formData
+      })
+      .then(response => response.json())
+      .then(obj => data.fileList.push(obj))
+  }
+
       
 
         return (
           <div className = "box_holder">
             <div class = "button_holder">
-              <button class = "upload_button">Choose a File</button>
+              <input ref={this.inputOpenFileRef} type="file"
+              onChange = {onChangeFile} 
+              style={{display:"none"}}/>
+
+              <button class = "upload_button"
+              onClick = {openFileDlg}>Choose a File</button>
               </div>
+
               <div id = 'box' className={zoneClass}
               onDrop={e => handleDrop(e)}
               onDragOver={e => handleDragOver(e)}
@@ -94,3 +116,4 @@ class Input extends React.Component {
 }
 
 export default Input
+

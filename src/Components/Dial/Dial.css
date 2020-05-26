@@ -2,7 +2,8 @@ input[type=range] {
     -webkit-appearance: none;
     width: 20%;
     background: transparent;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
   }
 
   input[type=range]:focus {

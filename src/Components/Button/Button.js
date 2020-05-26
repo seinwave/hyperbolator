@@ -10,7 +10,7 @@ class Button extends React.Component {
         const level = data.hyperLevel;
 
     return (
-        <button className = "button"
+        <button className = "hyper_button"
         onClick= {e => startHyperbolation(e)}>Hyperbolate at level {level}!</button>
     )
     }
