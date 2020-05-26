@@ -18,7 +18,7 @@ Html-docx-js (translates HTML to doc/x)
 
 Pretty simple, huh? Only major issue is that Html-docx-js has some security vulnerabilities, which I need to figure out how to solve.
 
-## Running to-dos (5.17.20)
+## Running to-dos (5.25.20)
 
 #### Backend 
 - Design / Build API routes
@@ -53,6 +53,24 @@ Pretty simple, huh? Only major issue is that Html-docx-js has some security vuln
 
 ## The Log
 
+### 5.26.20
+
+#### Pre
+
+As promised, I'm going to make that `upload` button actually do something. And I'm going to fiddle with the design until we arrive at something I'm happy with. 
+
+### 5.25.20
+
+#### Pre
+
+Gonna fiddle with the CSS today. Need to get the style distinct from my previous efforts. The samey-ness of my portfolio is a little telling.
+
+#### Post
+
+Did a pretty okay job here. It definitely doesn't look "the same." But it definitely doesn't look "good" either. I'll work on that.
+
+I also added an 'upload file' button -- for users who can't do drag n' drop, or on mobile. But I haven't made the button actually do anything. That's for tomorrow.
+
 ### 5.22.20
 
 #### Pre
@@ -62,6 +80,12 @@ Now to figure out other `numbers` cases: like percentages, negative comparisons,
 Question: is Compromise smart enough to exclude dates from `numbers()`?
 
 Guess I'll find out!
+
+#### Post
+
+Made a lot of progress in unexpected directions. Got decent grammar mutilators running, and the number mutilators are *almost* sensitive enough to satisfy me.
+
+Now I need to plug them into the hyperbolation routes and get this thing running!
 
 
 ### 5.21.20

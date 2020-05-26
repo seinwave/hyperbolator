@@ -73,7 +73,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h1>Truth is Dead.</h1>
-        <h2>Use the Hyperbolator instead.</h2>
+        <h2>Use the <code> Hyperbolator</code> instead.</h2>
       <Input data = {data} dispatch = {dispatch}/>
       <Dial data = {data} dispatch = {dispatch}/>
       <Button data = {data} dispatch = {dispatch} startHyperbolation = {startHyperbolation}/>

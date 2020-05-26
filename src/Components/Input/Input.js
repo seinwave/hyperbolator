@@ -70,17 +70,23 @@ class Input extends React.Component {
       
 
         return (
+          <div className = "box_holder">
+            <div class = "button_holder">
+              <button class = "upload_button">Choose a File</button>
+              </div>
               <div id = 'box' className={zoneClass}
               onDrop={e => handleDrop(e)}
               onDragOver={e => handleDragOver(e)}
               onDragEnter={e => handleDragEnter(e)}
               onDragLeave={e => handleDragLeave(e)}
             >
+              
               <img alt = "download arrow" src = "./assets/dl_icon.png"></img>
-              <p>
-                Drag files here to upload
+              <p class = "drag_prompt">
+                Or drag files here to upload
               </p>
             </div>
+          </div>
         )
 
 

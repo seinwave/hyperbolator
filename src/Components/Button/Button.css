@@ -1,5 +1,6 @@
 button {
-    margin-top: 1rem;
-    border-radius: 50px;
-    background-color: red; 
+    margin-top: 2rem;
+    padding: 1rem;
+    border-radius: 25px;
+    background-color: green 
 }
