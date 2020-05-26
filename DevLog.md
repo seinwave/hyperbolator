@@ -67,7 +67,13 @@ Had to learn some stuff about `refs` in React, and my `onChangeFile` function co
 
 Everything was accomplished in `Input.js`, after a modest amount of struggling. [This stack overflow answer](https://stackoverflow.com/questions/37457128/react-open-file-browser-on-click-a-div) was extremely helpful.
 
-Lesson learned today, though: I will NOT be doing any more CSS noodling until my functionality is up and running. Want to get those basics down, and 
+Lesson learned today, though: I will NOT be doing any more CSS noodling until my functionality is up and running. Want to get those basics down first.
+
+And, when I do start CSS-ing, I want to do it with a *checklist in hand*. 
+
+Otherwise the noodling will be endless.
+
+Okay, until next time. 
 
 #### Post
 
