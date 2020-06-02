@@ -18,7 +18,7 @@ Html-docx-js (translates HTML to doc/x)
 
 Pretty simple, huh? Only major issue is that Html-docx-js has some security vulnerabilities, which I need to figure out how to solve.
 
-## Running to-dos (5.25.20)
+## Running to-dos (6.2.20)
 
 #### Backend 
 - Design / Build API routes
@@ -43,6 +43,8 @@ Pretty simple, huh? Only major issue is that Html-docx-js has some security vuln
 - Make the drag-n-drop typeable, too (?)
     - Is this possible?
 
+- Style it like a word doc
+
 - Get data from slider, scale it into 5 increments  :white_check_mark:
 
 - Create a "Hyperbolate" (submit) button that fires the function  :white_check_mark:
@@ -52,6 +54,26 @@ Pretty simple, huh? Only major issue is that Html-docx-js has some security vuln
 
 
 ## The Log
+
+### 6.2.20 
+
+#### Pre
+
+Took a little break from this project, in order to build out my portfolio.
+
+That accomplished, I'm back on that Hyperbolator shit!
+
+Goal for today is STYLING. The app looks terrible right now. Time to fix that.
+
+I'm going to make it look like a word doc, because that's likely the format my users will be uploading the most.
+
+Wish me luck!
+
+#### Post
+
+Okay, doing pretty good on the stylings. Got the slider to be vertical on a large screen. Now I need to get it horizontal on a small one. For that, I need to figure out conditional viewport rendering in react, when the `App.js` is a pure function.
+
+Sounds like a "tomorrow" job to me!
 
 ### 5.26.20
 

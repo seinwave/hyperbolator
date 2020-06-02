@@ -1,26 +1,30 @@
 .box_holder{
+    border-top: solid 5rem #0066ff;
     background-color: white;
     min-height: 20vh;
     max-width: 600px;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
     padding: 20px;
 }
 
 .upload_button{
     margin-top: .3rem;
     padding: 1rem;
-    background-color: green 
+    background-color: #3399ff;
 }
 
 
 .drag-drop-zone {
     margin-top: 2rem;
     margin-bottom: 2rem;
+    margin-right: 1rem;
+    margin-left: 3rem;
     padding: 45px; 
-    border: dashed 2px green;
-    max-width: 80%;
+    border: dashed 2px #3399ff;
+    max-width: 70%;
     color: black;
 }
 
@@ -30,12 +34,11 @@
     margin-bottom: 2rem;
     color: black;
     max-width: 80%;
-    background-color: rgb(90, 198, 234, .1);
-    box-shadow: 0 0 3px purple;
+    background-color: #3399ff;
+    box-shadow: 0 0 3px navy;
     padding: 45px;
-    border: solid 2px green;
+    border: solid 2px #0066ff;
     transform: scale(.95);
-    border-radius: 50px;
     filter: blur(.6px)
 }
 
@@ -58,17 +61,44 @@ img {
     margin-bottom: 0px;
 }
 
+.break {
+    flex-basis: 100%;
+    height: 0;
+  }
+
 @media (max-width: 1100px) {
     img {
         display:none;
     }
-    .drag_prompt{
-        display:none;
+    .drag-drop-zone {
+        padding: 45px; 
+        border: none;
+        max-width: 70%;
+        color: black;
     }
-    .drag-drop-zone{
-        display: none;
+    
+    
+    .drag-drop-zone_dragged {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        color: black;
+        max-width: 80%;
+        background-color: #3399ff;
+        box-shadow: 0 0 3px navy;
+        padding: 45px;
+        border: none;
+        transform: scale(.95);
+        filter: blur(.6px)
     }
-    .drag-drop-zone_dragged{
-        display: none;
+
+    .box_holder{
+        border-top: solid 2rem #0066ff;
+        background-color: white;
+        min-height: 20vh;
+        max-width: 600px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
     }
 }

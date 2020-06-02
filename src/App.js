@@ -3,14 +3,11 @@ import './App.css';
 import 'tachyons'; 
 import Signature from './Components/Signature/Signature';
 import Input from './Components/Input/Input';
-import Dial from './Components/Dial/Dial';
-import Button from './Components/Button/Button';
-
 
 function App() {
   
 
-  const initialState = {hyperLevel: 0, dropDepth: 0, inDropZone: false, fileList: []}
+  const initialState = {innerWidth: 0, hyperLevel: 0, dropDepth: 0, inDropZone: false, fileList: []}
 
   const reducer = (state, action) => {
     // eslint-disable-next-line default-case
@@ -23,6 +20,8 @@ function App() {
         return {...state, fileList: state.fileList.concat(action.files)}
       case 'SET_HYPERBOLATION':
         return {...state, hyperLevel: action.hyperLevel};
+      case 'WINDOW_RESIZE':
+        return {...state, innerWidth: action.innerWidth};
       case 'EMPTY':
         return {...state, fileList: []};
     };
@@ -32,7 +31,14 @@ function App() {
     reducer, initialState
   );
 
-  
+  const handleResize = (e) => {
+      console.log('fart')
+  }
+
+  const componentDidMount = () => {
+      window.addEventListener("resize", handleResize)
+  }
+
 
   const startHyperbolation = () => {
     console.log("You clicked hyperbolate at level ", data.hyperLevel)
@@ -74,9 +80,7 @@ function App() {
       <header className="App-header">
         <h1>Truth is Dead.</h1>
         <h2>Use the <code> Hyperbolator</code> instead.</h2>
-      <Input data = {data} dispatch = {dispatch}/>
-      <Dial data = {data} dispatch = {dispatch}/>
-      <Button data = {data} dispatch = {dispatch} startHyperbolation = {startHyperbolation}/>
+      <Input data = {data} dispatch = {dispatch} startHyperbolation = {startHyperbolation} />
       </header>
       <Signature />
     </div>

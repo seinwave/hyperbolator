@@ -1,5 +1,7 @@
 import React from 'react';
-import './Input.css'
+import './Input.css';
+import Dial from '../Dial/Dial';
+import Button from '../Button/Button'
 
 
 
@@ -12,7 +14,7 @@ class Input extends React.Component {
 
     render(props) {
 
-    const {data, dispatch} = this.props; 
+    const {data, dispatch, startHyperbolation} = this.props; 
 
     let zoneClass = 'drag-drop-zone'
   
@@ -87,7 +89,15 @@ class Input extends React.Component {
 
         return (
           <div className = "box_holder">
-            <div class = "button_holder">
+
+              <div id = 'box' className={zoneClass}
+              onDrop={e => handleDrop(e)}
+              onDragOver={e => handleDragOver(e)}
+              onDragEnter={e => handleDragEnter(e)}
+              onDragLeave={e => handleDragLeave(e)}
+            >
+
+              <div class = "button_holder">
               <input ref={this.inputOpenFileRef} type="file"
               onChange = {onChangeFile} 
               style={{display:"none"}}/>
@@ -96,18 +106,15 @@ class Input extends React.Component {
               onClick = {openFileDlg}>Choose a File</button>
               </div>
 
-              <div id = 'box' className={zoneClass}
-              onDrop={e => handleDrop(e)}
-              onDragOver={e => handleDragOver(e)}
-              onDragEnter={e => handleDragEnter(e)}
-              onDragLeave={e => handleDragLeave(e)}
-            >
               
               <img alt = "download arrow" src = "./assets/dl_icon.png"></img>
               <p class = "drag_prompt">
                 Or drag files here to upload
               </p>
             </div>
+            <Dial data = {data} dispatch = {dispatch}/>
+            <div class = "break"></div>
+            <Button data = {data} dispatch = {dispatch} startHyperbolation = {startHyperbolation}/>
           </div>
         )
 
