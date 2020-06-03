@@ -7,7 +7,7 @@ import Input from './Components/Input/Input';
 function App() {
   
 
-  const initialState = {innerWidth: 0, hyperLevel: 0, dropDepth: 0, inDropZone: false, fileList: []}
+  const initialState = {ready: 0, innerWidth: 0, hyperLevel: 0, dropDepth: 0, inDropZone: false, fileList: []}
 
   const reducer = (state, action) => {
     // eslint-disable-next-line default-case
@@ -22,6 +22,8 @@ function App() {
         return {...state, hyperLevel: action.hyperLevel};
       case 'WINDOW_RESIZE':
         return {...state, innerWidth: action.innerWidth};
+      case 'FILE_IS_READY':
+        return {...state, ready: action.ready}
       case 'EMPTY':
         return {...state, fileList: []};
     };

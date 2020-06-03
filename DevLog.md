@@ -55,6 +55,41 @@ Pretty simple, huh? Only major issue is that Html-docx-js has some security vuln
 
 ## The Log
 
+### 6.3.20
+
+#### Pre
+
+Some aesthetic things I want to achieve:
+
+1. Let the user know, visually, that their file is ready for hyperbolation. Thinking a 'doc' icon will do the trick. Will probably have to create a new state to alter.
+
+2. Get the hyperbolator slider horizontal in mobile mode, AND functional. We'll see how that goes...
+
+I have a feeling these might occupy my entire dev time this morning. We'll see.
+
+#### Post
+
+As expected, these minor changes took up the whole session. And I managed to create new challenges for myself, too.
+
+Got the submission-indicator working okay. Can definitely tell when I've plopped something in. Even have a load-screen going, too. 
+
+```(Note: I want to make the ellipses animated -- I'll get that going next time).```
+
+Also, got the aesthetic much more dialed in, so the transitions are less rough (though not entirely smooth).
+
+I think I'm abandoning the "horizontal slider in mobile" idea. I think it's just a subobtimal user-interaction. May replace it with `+` and `-` buttons. We'll see.
+
+Overall pretty successful session.
+
+For next time: 
+
+1. Get those ellipses animated
+2. Get the `+/-` dial configured -- possibly on both mobile AND desktop. 
+
+
+
+
+
 ### 6.2.20 
 
 #### Pre

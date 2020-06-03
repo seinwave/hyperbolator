@@ -2,6 +2,7 @@ import React from 'react';
 import './Input.css';
 import Dial from '../Dial/Dial';
 import Button from '../Button/Button'
+import Uploader from '../Uploader/Uploader'
 
 
 
@@ -17,16 +18,26 @@ class Input extends React.Component {
     const {data, dispatch, startHyperbolation} = this.props; 
 
     let zoneClass = 'drag-drop-zone'
+
+    let fileName
   
+    const filePreparer = (file) => {
+      console.log('File[0].name is', file[0].name)
+      console.log('FileList is', data.fileList[0])
+      fileName = data.fileList[0]
+      return dispatch({type: 'FILE_IS_READY', ready: 1})
+    }
 
     const handleDrop = e => {
       e.preventDefault();
       e.stopPropagation();
       e.target.className = zoneClass;
 
-      let files = e.dataTransfer.files
+      let file = e.dataTransfer.files
+      filePreparer(file);
+
       const formData = new FormData()
-      formData.append('file', files[0])
+      formData.append('file', file[0])
       
       return fetch("http://localhost:3001/upload", {
       method: 'POST',
@@ -34,6 +45,7 @@ class Input extends React.Component {
       })
       .then(response => response.json())
       .then(obj => data.fileList.push(obj))
+      .then(filePreparer(file))
     }
       
 
@@ -72,10 +84,12 @@ class Input extends React.Component {
     const onChangeFile = (e) => {
       e.stopPropagation();
       e.preventDefault();
-      var file = e.target.files[0];
-      console.log(file);
+      var file = e.target.files;
+      
+      
       const formData = new FormData()
-      formData.append('file', file)
+      formData.append('file', file[0])
+
       
       return fetch("http://localhost:3001/upload", {
       method: 'POST',
@@ -83,13 +97,36 @@ class Input extends React.Component {
       })
       .then(response => response.json())
       .then(obj => data.fileList.push(obj))
+      .then(filePreparer(file))
   }
 
-      
+  if (data.ready === 1) {
+    return (
+      <Uploader data = {data} dispatch = {dispatch} startHyperbolation = {startHyperbolation} /> 
+    )
+  }
+  
+  else if (data.ready === 2) {
+    return (
+    <div className = "box_holder">
+          <div id = 'box' className = "drag-drop-zone">  
+        <svg class="bi bi-file-earmark-check" width="4em" height="5.5em" viewBox="0 0 16 16" fill="#3399ff" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 1H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h5v-1H4a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h5v2.5A1.5 1.5 0 0 0 10.5 6H13v2h1V6L9 1z"/>
+          <path fill-rule="evenodd" d="M15.854 10.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708l1.146 1.147 2.646-2.647a.5.5 0 0 1 .708 0z"/>
+        </svg>
+      <p class = "drag_prompt">{`Your file is ready for Hyperbolation`}</p>
+      </div>
+      <Dial data = {data} dispatch = {dispatch}/>
+            <div class = "break"></div>
+            <Button data = {data} dispatch = {dispatch} startHyperbolation = {startHyperbolation}/>
+    </div>
+    )}
 
+  else 
         return (
-          <div className = "box_holder">
 
+          
+          <div className = "box_holder">
               <div id = 'box' className={zoneClass}
               onDrop={e => handleDrop(e)}
               onDragOver={e => handleDragOver(e)}

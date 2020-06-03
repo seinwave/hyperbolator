@@ -1,4 +1,4 @@
-.box_holder{
+/* .box_holder{
     border-top: solid 5rem #0066ff;
     background-color: white;
     min-height: 20vh;
@@ -8,12 +8,18 @@
     flex-wrap: wrap;
     justify-content: center;
     padding: 20px;
+    color: black;
+}
+
+.button-holder{
+    pointer-events: none;
 }
 
 .upload_button{
     margin-top: .3rem;
     padding: 1rem;
     background-color: #3399ff;
+    pointer-events: none;
 }
 
 
@@ -21,7 +27,6 @@
     margin-top: 2rem;
     margin-bottom: 2rem;
     margin-right: 1rem;
-    margin-left: 3rem;
     padding: 45px; 
     border: dashed 2px #3399ff;
     max-width: 70%;
@@ -33,7 +38,6 @@
     margin-top: 2rem;
     margin-bottom: 2rem;
     color: black;
-    max-width: 80%;
     background-color: #3399ff;
     box-shadow: 0 0 3px navy;
     padding: 45px;
@@ -87,7 +91,6 @@ img {
         box-shadow: 0 0 3px navy;
         padding: 45px;
         border: none;
-        transform: scale(.95);
         filter: blur(.6px)
     }
 
@@ -101,4 +104,4 @@ img {
         align-items: center;
         padding: 20px;
     }
-}
+} */
