@@ -1,6 +1,5 @@
 input[type=range] {
     -webkit-appearance: none;
-    width: 20%;
     background: transparent;
     margin-bottom: 1rem;
     margin-top: 1rem;
@@ -34,11 +33,10 @@ input[type=range] {
     background: linear-gradient(89deg, white, purple)
   }
   input[type=range]::-moz-range-track {
-    width: 2rem;
-    height: 18rem;
+    height: 2rem;
     cursor: pointer;
     box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-    background: linear-gradient( #0066ff, white);
+    background: linear-gradient(89deg, white, #0066ff);
     border-radius: 10.8px;
     border: 1.4px solid #010101;
   }
@@ -93,7 +91,6 @@ input[type=range] {
 
     input[type=range] {
         -webkit-appearance: none;
-        width: 50%;
         background: transparent;
       }
 
@@ -112,7 +109,6 @@ input[type=range] {
 
     input[type=range] {
         -webkit-appearance: none;
-        width: 30%;
         background: transparent;
       }
 

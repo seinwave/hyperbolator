@@ -68,6 +68,14 @@ h1 {
     margin-top: .3rem;
     padding: 1rem;
     background-color: #3399ff;
+    border-bottom: solid 5px #024a92;
+    border-radius: 10px;
+}
+
+.hyper_button{
+    background-color: #3399ff;
+    border-bottom: solid 5px #024a92;
+    border-radius: 10px;
 }
 
 
@@ -133,12 +141,10 @@ img {
 }
 
 @media (max-width: 1100px) {
-    img {
-        display:none;
-    }
+  
     .drag-drop-zone {
         padding: 45px; 
-        border: none;
+        border: dashed black;
         max-width: 70%;
         color: black;
     }
@@ -160,10 +166,15 @@ img {
         border-top: solid 2rem #0066ff;
         background-color: white;
         min-height: 20vh;
-        width: 40rem;
+        max-width: 90%;
         display: flex;
         flex-direction: column;
         align-items: center;
         padding: 20px;
     }
+
+
+  .drag_prompt {
+    display: none;
+  }
 }

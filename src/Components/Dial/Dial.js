@@ -25,7 +25,7 @@ class Dial extends React.Component {
         return (
             
             
-            <input type = "range" max = "500" orient = {orient}
+            <input type = "range" max = "500" 
                 onChange ={e => handleSlider(e)}></input>
             
         )

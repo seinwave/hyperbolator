@@ -26,6 +26,8 @@ function App() {
         return {...state, ready: action.ready}
       case 'EMPTY':
         return {...state, fileList: []};
+      case 'RESET':
+        return {...state, state: initialState}
     };
   };
 
@@ -35,10 +37,6 @@ function App() {
 
   const handleResize = (e) => {
       console.log('fart')
-  }
-
-  const componentDidMount = () => {
-      window.addEventListener("resize", handleResize)
   }
 
 

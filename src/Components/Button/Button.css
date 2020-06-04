@@ -3,3 +3,10 @@
     padding: 1rem;
     background-color: #3399ff;
 }
+
+.cancel_button{
+    padding: 1rem;
+    border-radius: 10px;
+    background-color: red;
+    border-bottom: solid 5px rgb(128, 2, 2)
+}

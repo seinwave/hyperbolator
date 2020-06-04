@@ -5,14 +5,27 @@ import './Button.css'
 class Button extends React.Component {
     render(props) {
 
-        const {data, startHyperbolation} = this.props;
+        const {data, startHyperbolation, dispatch} = this.props;
 
         const level = data.hyperLevel;
 
+        const reset = () => {
+            dispatch({type: 'EMPTY'})
+            dispatch({type: 'FILE_IS_READY', ready: 0})
+          }
+
     return (
+        <div>
         <button className = "hyper_button"
-        onClick= {e => startHyperbolation(e)}>Hyperbolate at level {level}!</button>
+        onClick= {e => startHyperbolation(e)}>Hyperbolate at level {level}</button>
+        <div class = "line_break">
+            <h3>- Or -</h3>
+        </div>
+        <button className = "cancel_button"
+        onClick= {e => reset(e)}>Remove & Start Over</button>
+         </div>
     )
+    
     }
 }
 

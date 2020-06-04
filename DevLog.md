@@ -55,6 +55,25 @@ Pretty simple, huh? Only major issue is that Html-docx-js has some security vuln
 
 ## The Log
 
+### 6.4.20
+
+#### Pre
+
+Some things to achieve:
+
+- Prettier buttons
+- A 'remove' option, once your file is loaded
+- Animated ellipses
+- Filename passed to the DOM
+
+That's probably enough for now. Let's do it. 
+
+#### Post
+
+Had a revelation. That including `Dial` and the `Hyperbolator` button gave the user too many things to do, upon page load.
+
+Removed those on the initialization, and included them in 
+
 ### 6.3.20
 
 #### Pre
