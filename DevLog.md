@@ -72,7 +72,13 @@ That's probably enough for now. Let's do it.
 
 Had a revelation. That including `Dial` and the `Hyperbolator` button gave the user too many things to do, upon page load.
 
-Removed those on the initialization, and included them in 
+Removed those on the initialization, and included them ONLY when a file is ready. Made the presentation of the site a LOT cleaner. Also solved some of the responsive issues.
+
+Got the ellipses in, the remove button, the better-looking buttons -- only thing I didn't get done was the Filename-passing issue. Which I'll work on tomorrow.
+
+Overall, successful Dev morning.
+
+'Ta!
 
 ### 6.3.20
 
