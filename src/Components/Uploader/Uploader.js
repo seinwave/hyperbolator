@@ -1,5 +1,4 @@
 import React, { Component }  from 'react'
-import ReactAnimatedEllipsis from 'react-animated-ellipsis';
 import Dial from '../Dial/Dial';
 import Button from '../Button/Button'
 

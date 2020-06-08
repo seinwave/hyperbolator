@@ -11,8 +11,17 @@ class Button extends React.Component {
 
         const reset = () => {
             dispatch({type: 'EMPTY'})
-            dispatch({type: 'FILE_IS_READY', ready: 0})
-          }
+            fetch(`http://localhost:3001/delete`, {
+                headers: { 'Accept': 'application/json',
+                "Content-Type": 'application/json'},
+                method: 'POST'
+        })
+                .then(resp => resp.json())
+
+                .then(dispatch({type: 'FILE_IS_READY', ready: 0}))
+        }
+
+          
 
     return (
         <div>

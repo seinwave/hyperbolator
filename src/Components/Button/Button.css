@@ -7,6 +7,6 @@
 .cancel_button{
     padding: 1rem;
     border-radius: 10px;
-    background-color: red;
+    background-color: #ff7f7f;
     border-bottom: solid 5px rgb(128, 2, 2)
 }

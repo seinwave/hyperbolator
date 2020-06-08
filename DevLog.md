@@ -18,7 +18,7 @@ Html-docx-js (translates HTML to doc/x)
 
 Pretty simple, huh? Only major issue is that Html-docx-js has some security vulnerabilities, which I need to figure out how to solve.
 
-## Running to-dos (6.2.20)
+## Running to-dos (6.8.20)
 
 #### Backend 
 - Design / Build API routes
@@ -50,10 +50,37 @@ Pretty simple, huh? Only major issue is that Html-docx-js has some security vuln
 - Create a "Hyperbolate" (submit) button that fires the function  :white_check_mark:
     - Connect that function to the API routes (splitting by exaggeration level) :white_check_mark:
 
-- How to return file? As a DL or displayed? Both?
+- How to return file? As a DL or displayed? Both? :white_check_mark:
 
 
 ## The Log
+
+### 6.5.20
+
+#### Pre
+
+Back to it! Here's what's on the docket:
+- Integrate Mammoth, so we can accept `docx` files
+- *Restrict* users to `docx` or `txt` files
+- Set up the exaggeration level for each route
+- Fix mobile CSS rules
+
+More than enough to take up today's dev time, in other words. Here we go.
+
+#### Post
+
+Pretty good session! 
+
+Got all those things done, except the mobile CSS rules, which I call a victory.
+
+I also impletemented a `delete` route in the API. This keeps the user's uploaded file around UNTIL they decide to delete it. In theory, that should enable them to hyperbolate over and over and over again.
+
+BUT, successive hyperbolations don't seem to work. User fires `h1` hyperbolation, then the file is changed (or something), and when user tries to fire `h2` hyperbolation, it fails.
+
+Fixing that is tomorrow's challenge.
+
+BYE. 
+
 
 ### 6.4.20
 

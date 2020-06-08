@@ -39,18 +39,14 @@ function App() {
       console.log('fart')
   }
 
-
   const startHyperbolation = () => {
     console.log("You clicked hyperbolate at level ", data.hyperLevel)
-    const file = data.fileList[0]  // this just keeps adding stuff to the fileList...need to purge it every upload...
-
+    const file = data.fileList[0]
+    
+    
+    
     console.log("File is ", file)
     
-  //   fetch(`http://localhost:3001/${data.hyperLevel}`, {
-  //     method: 'POST'
-  // })
-  //   .then(resp => resp.json)
-  //   .then(data => console.log(data))
 
     fetch(`http://localhost:3001/${data.hyperLevel}`, {
       headers: { 'Accept': 'application/json',
@@ -70,8 +66,6 @@ function App() {
       a.remove();
     }
     )
-    
-    dispatch({type: 'EMPTY'})
   }
 
 
@@ -80,7 +74,9 @@ function App() {
       <header className="App-header">
         <h1>Truth is Dead.</h1>
         <h2>Use the <code> Hyperbolator</code> instead.</h2>
-      <Input data = {data} dispatch = {dispatch} startHyperbolation = {startHyperbolation} />
+      <Input data = {data} 
+      dispatch = {dispatch} 
+      startHyperbolation = {startHyperbolation} />
       </header>
       <Signature />
     </div>
