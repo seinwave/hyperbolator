@@ -55,7 +55,37 @@ Pretty simple, huh? Only major issue is that Html-docx-js has some security vuln
 
 ## The Log
 
-### 6.5.20
+### 6.9.20
+
+#### Pre
+
+Here we go, setting out to make successive hyperbolations possible.
+
+The issue is Mammoth. It converts files to HTML, right? But it can't *handle* HTML files once they're converted. 
+
+When the Hyperbolation does its job, it converts `docx` files to HTML. I haven't figured out the HTML-to-`docx` part yet.
+
+So when we try to run Hyperbolator again, Mammoth doesn't know what to do.
+
+Fixing that today.
+
+#### Post
+
+Found an interesting solution!
+
+First, implementing a conditional check on the uploaded files. Only `docx` get the Mammoth treatment now.
+
+Second, I changed the Hyperbolator so that it no longer mutates the user's uploaded file. Instead, it writes file *content* to a blank file in a `downloads` directory. 
+
+The result is that the user's file is untouched, so they can keep clicking `hyperbolate` to their heart's content.
+
+And when they click `start over`, those files in the download directory are cleared -- fresh for the next hyperbolation session.
+
+Happy with how this worked out!
+
+(Though, none of it would have been necessary if I'd just gotten an HTML-to-DOCX solution up and running -- that's what's next.)
+
+### 6.8.20
 
 #### Pre
 
@@ -68,7 +98,6 @@ Back to it! Here's what's on the docket:
 More than enough to take up today's dev time, in other words. Here we go.
 
 #### Post
-
 Pretty good session! 
 
 Got all those things done, except the mobile CSS rules, which I call a victory.
