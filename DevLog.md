@@ -55,6 +55,32 @@ Pretty simple, huh? Only major issue is that Html-docx-js has some security vuln
 
 ## The Log
 
+### 6.10.20
+
+#### Pre
+
+Alright, so, I think I've come to accept that this app will never be 100% what I envisioned. 
+
+For one, the NLP manipulations required to properly 'exaggerate' a text are actually very sophisticated. 
+
+For another, the HTML-to-DOCx package has two big vulnerabilities, that I'm having trouble fixing.
+
+I'll get as far as I can with it, and then wash my hands of this project. It's time to move on to something else.
+
+Today, I'm going to implement the HTML-to-DOCx package, and call it a done deal.
+
+#### Post 
+
+Okay! That went well! 
+
+Took some fiddling to get the `HTML-to-DOCx` package working correctly, but I figured it out -- had to fire it *within* the `Mammoth` promise.
+
+Once done, turned out great!
+
+Now the question is: how much better do I want to make this? I can probably make it marginally better by tinkering with the `mutilators` -- at least get it to produce actual, human-like writing in the end. 
+
+I'll try to come up with a list of ideas.
+
 ### 6.9.20
 
 #### Pre
