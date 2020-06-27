@@ -15,11 +15,10 @@ class Input extends React.Component {
 
     render(props) {
 
-    const {data, dispatch, startHyperbolation, reset} = this.props; 
+    const {data, dispatch} = this.props; 
 
     let zoneClass = 'drag-drop-zone'
 
-    let fileName
 
     const doc = /doc/
     const txt = /txt/
@@ -28,10 +27,8 @@ class Input extends React.Component {
   
     const filePreparer = (file) => {
       if (doc.test(file[0].name) || txt.test(file[0].name) || docx.test(file[0].name)) {
-        console.log('File[0].name is', file[0].name)
-        console.log('FileList is', data.fileList[0])
-        fileName = data.fileList[0]
         return dispatch({type: 'FILE_IS_READY', ready: 1})
+        
     }
 
       else {console.log('wrong!')
@@ -45,18 +42,20 @@ class Input extends React.Component {
       e.target.className = zoneClass;
 
       let file = e.dataTransfer.files
-      filePreparer(file);
 
       const formData = new FormData()
+      
       formData.append('file', file[0])
       
-      return fetch("http://localhost:3001/upload", {
+      return fetch("https://hyperbolator.herokuapp.com/upload", {
+      headers: {"Access-Control-Allow-Origin": "*"},
       method: 'POST',
       body: formData
       })
       .then(response => response.json())
       .then(obj => data.fileList.push(obj))
       .then(filePreparer(file))
+      
     }
       
 
@@ -89,7 +88,6 @@ class Input extends React.Component {
 
     const openFileDlg = () => {
       this.inputOpenFileRef.current.click()
-
     }
 
     const onChangeFile = (e) => {
@@ -97,18 +95,39 @@ class Input extends React.Component {
       e.preventDefault();
       var file = e.target.files;
       
-      
       const formData = new FormData()
       formData.append('file', file[0])
 
-      
-      return fetch("http://localhost:3001/upload", {
+      return fetch("https://hyperbolator.herokuapp.com/upload", {
+      headers: {"Access-Control-Allow-Origin": "*"},
       method: 'POST',
       body: formData
       })
       .then(response => response.json())
       .then(obj => data.fileList.push(obj))
       .then(filePreparer(file))
+  }
+
+
+  const startHyperbolation = () => {
+    fetch(`https://hyperbolator.herokuapp.com/${data.hyperLevel}`, {
+      headers: { 'Accept': 'application/json',
+      "Content-Type": 'application/json'},
+      method: 'POST',
+      body: JSON.stringify({file: data.fileList[0]}) // this is an empty object, now. Wtf.
+  })
+    .then(resp => resp.blob())
+    .then(blob => {
+      var url = URL.createObjectURL(blob);
+      var a = document.createElement('a');
+      a.style = "display: none"
+      a.href = url;
+      a.download = "Your Hyperbolation";
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+    }
+    )
   }
 
   if (data.ready === 1) {
@@ -123,14 +142,14 @@ class Input extends React.Component {
     return (
     <div className = "box_holder">
           <div id = 'box' className = "drag-drop-zone">  
-            <svg class="bi bi-file-earmark-check" width="4em" height="5.5em" viewBox="0 0 16 16" fill="#3399ff" xmlns="http://www.w3.org/2000/svg">
+            <svg className="bi bi-file-earmark-check" width="4em" height="5.5em" viewBox="0 0 16 16" fill="#3399ff" xmlns="http://www.w3.org/2000/svg">
               <path d="M9 1H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h5v-1H4a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h5v2.5A1.5 1.5 0 0 0 10.5 6H13v2h1V6L9 1z"/>
               <path fill-rule="evenodd" d="M15.854 10.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708l1.146 1.147 2.646-2.647a.5.5 0 0 1 .708 0z"/>
             </svg>
-      <p class = "finale">{`Your file is ready for Hyperbolation`}</p>
+      <p className = "finale">{`Your file is ready for Hyperbolation`}</p>
       </div>
       <Dial data = {data} dispatch = {dispatch}/>
-            <div class = "break"></div>
+            <div className = "break"></div>
             <Button data = {data} dispatch = {dispatch} 
             startHyperbolation = {startHyperbolation}/>
     </div>
@@ -140,7 +159,7 @@ class Input extends React.Component {
       return (
         <div className = "box_holder">
             <div id = 'load-box' className="drag-drop-zone">
-              <svg class="bi bi-x-circle-fill" width="4em" height="5.5em" viewBox="0 0 16 16" fill="#ff7f7f" xmlns="http://www.w3.org/2000/svg">
+              <svg className ="bi bi-x-circle-fill" width="4em" height="5.5em" viewBox="0 0 16 16" fill="#ff7f7f" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.146-3.146a.5.5 0 0 0-.708-.708L8 7.293 4.854 4.146a.5.5 0 1 0-.708.708L7.293 8l-3.147 3.146a.5.5 0 0 0 .708.708L8 8.707l3.146 3.147a.5.5 0 0 0 .708-.708L8.707 8l3.147-3.146z"/>
               </svg>
             <h2>Rejected. 
@@ -165,7 +184,7 @@ class Input extends React.Component {
               onDragLeave={e => handleDragLeave(e)}
             >
 
-              <div class = "button_holder">
+              <div className = "button_holder">
               <input ref={this.inputOpenFileRef} type="file"
               accept = '.docx, .txt, .doc'
               onChange = {onChangeFile} 

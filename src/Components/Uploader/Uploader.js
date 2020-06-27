@@ -1,7 +1,4 @@
 import React, { Component }  from 'react'
-import Dial from '../Dial/Dial';
-import Button from '../Button/Button'
-
 class Uploader extends Component{
 
     constructor(props){

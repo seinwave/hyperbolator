@@ -35,39 +35,6 @@ function App() {
     reducer, initialState
   );
 
-  const handleResize = (e) => {
-      console.log('fart')
-  }
-
-  const startHyperbolation = () => {
-    console.log("You clicked hyperbolate at level ", data.hyperLevel)
-    const file = data.fileList[0]
-    
-    
-    
-    console.log("File is ", file)
-    
-
-    fetch(`http://localhost:3001/${data.hyperLevel}`, {
-      headers: { 'Accept': 'application/json',
-      "Content-Type": 'application/json'},
-      method: 'POST',
-      body: JSON.stringify({file:file})
-  })
-    .then(resp => resp.blob())
-    .then(blob => {
-      var url = URL.createObjectURL(blob);
-      var a = document.createElement('a');
-      a.style = "display: none"
-      a.href = url;
-      a.download = "Your Hyperbolation.txt";
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
-    }
-    )
-  }
-
 
   return (
     <div className="App">
@@ -76,7 +43,7 @@ function App() {
         <h2>Use the <code> Hyperbolator</code> instead.</h2>
       <Input data = {data} 
       dispatch = {dispatch} 
-      startHyperbolation = {startHyperbolation} />
+      />
       </header>
       <Signature />
     </div>

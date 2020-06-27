@@ -8,13 +8,9 @@ class Dial extends React.Component {
 
     render(props) {
 
-        const {data, dispatch} = this.props; 
+        const {dispatch} = this.props; 
 
-        let orient;
-        if (window.innerWidth > 1100) {
-            orient = "vertical";}
-        else orient = "horizontal"
-        
+
 
         const handleSlider = (e) => {
             let levelSetter = Math.floor((e.target.value)/100)

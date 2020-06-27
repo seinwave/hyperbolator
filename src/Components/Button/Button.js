@@ -11,9 +11,10 @@ class Button extends React.Component {
 
         const reset = () => {
             dispatch({type: 'EMPTY'})
-            fetch(`http://localhost:3001/delete`, {
+            fetch(`https://hyperbolator.herokuapp.com/delete`, {
                 headers: { 'Accept': 'application/json',
-                "Content-Type": 'application/json'},
+                "Content-Type": 'application/json',
+                "Access-Control-Allow-Origin": "*"},
                 method: 'POST'
         })
                 .then(resp => resp.json())
