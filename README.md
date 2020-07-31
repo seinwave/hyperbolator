@@ -1,68 +1,72 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# The Hyperbolator
 
-## Available Scripts
+Upload a .docx or .txt file. The Hyperbolator turns it into lies. 
 
-In the project directory, you can run:
+![BSL in action](https://mattseidholz.com/assets/images/hyperbolator.gif)
 
-### `yarn start`
+Try it out [here.](seinwave.github.io/hyperbolator)
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Rationale
 
-### `yarn test`
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### What does this do?
 
-### `yarn build`
+You upload a document. Then you pick, on a scale of 0-5, how much you want to lie.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The Hyperbolator adds some adjectives / adverbs, multiplies or divides some numbers (where appropriate), and gives you your exaggerated file back.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+Does it work? Mostly. 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+I'll get into my discontents later. 
 
-### `yarn eject`
+### Why make this?
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+It all started when I stumbled on [Compromise](http://compromise.cool/), [Spencer Kelly](https://www.google.com/search?client=firefox-b-1-d&q=github+spencerymountain)'s very cool JS-based NLP library.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+From the second I saw it, I wanted to play with it. And play I did!
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+The Hyperbolator is the result. 
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Execution
 
-## Learn More
+### What's your tech stack?
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+A tried-and-true combo of a `React` frontend, with a `Node.js` server on the backend (deployed to Heroku).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+The server's where all the action is — where files are uploaded, stored very briefly, mutated, and written to a new file. Which is what the user downloads. 
 
-### Code Splitting
+Easy peasy!
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+### What weren't you happy with?
 
-### Analyzing the Bundle Size
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+#### Too many packages
 
-### Making a Progressive Web App
+Unfortunately, for all the file management, I was pretty dependent on some node packages. Which was really my downfall here.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+First of these was `Mammoth`, converts `.docx` files to `HTML`. Once it's in `HTML`, `Compromise` plays around with it, according to the degree set by the user. *That* part actually works pretty well.
 
-### Advanced Configuration
+What's less great is the reverse process — taking `HTML` and putting it back into `.docx`. I relied on another package — `html-to-docx-js`. 
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+The issue is formatting. 
 
-### Deployment
+Mammoth's HTML output preserves some of the original `docx` document's stylings, but it still *looks* like a very mutated piece of work. 
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+Not the seamless experience I was going for.
 
-### `yarn build` fails to minify
+And I'm not entirely sure how to fix it.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+#### The wrong start
+
+I also bumped into some of `Compromise's` limitations. 
+
+I had envisioned a very ambitions lying machine — with a primary use-case on resumes. 
+
+It would replace job titles with better ones, swap out less prestigious companies / universities for better ones, etc.
+
+But I kept running in to awkward misfires. `Compromise` uses regex and statistical linguistic clues to determine if something is an organization or a person, etc. It didn't quite hit the mark, and I wasn't sure how to fix that, either.
+
+Ultimately, I decided to move along to other projects.
+
+But there's always a chance I could pick this up again someday. 
