@@ -70,3 +70,23 @@ But I kept running in to awkward misfires. `Compromise` uses regex and statistic
 Ultimately, I decided to move along to other projects.
 
 But there's always a chance I could pick this up again someday. 
+
+
+## Clone this App!
+
+If you have some ideas for the Hyperbolator, feel free to fork the `dev branch` repo. (But bear in mind this repo is only the frontend. Link to the API repo down below).
+
+And if you'd like to clone the Hyperbolator to your local machine, it should be pretty straightforward.
+
+- Clone the `dev branch` of this repo using the protocol of your choice.
+- Head to the <a target ="_blank" href = "https://github.com/seinwave/hyperbolator-api">Hyperbolator API</a> repo, and clone that too.
+    - You'll need the following dependencies (`npm install` or `yarn add`):
+        - body-parser
+        - compromise, and the following compromise extensions:
+            - compromise-adjectives
+            - compromise-numbers
+            - compromise-sentences
+        - <a target ="_blank" href = "https://www.npmjs.com/package/html-docx-js"> html-docx-js </a>
+        - <a target ="_blank" href = "https://www.npmjs.com/package/mammoth"> mammoth </a>
+
+Enjoy!
