@@ -4,7 +4,7 @@ Upload a .docx or .txt file. The Hyperbolator turns it into lies.
 
 ![BSL in action](https://mattseidholz.com/assets/images/hyperbolator.gif)
 
-Try it out [here.](seinwave.github.io/hyperbolator)
+Try it out [here.](https://seinwave.github.io/hyperbolator/index.html)
 
 
 ## Rationale
