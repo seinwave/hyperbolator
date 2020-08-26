@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "b82fd8e9c92d242c61e36e9dc3e1bf4e",
+    "revision": "e0d7525e6c3c84e97533a902b732610b",
     "url": "/hyperbolator/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/hyperbolator/static/css/2.3c03f26f.chunk.css"
   },
   {
-    "revision": "b5a785bddb135be529a9",
+    "revision": "deb16ca321ab0d241629",
     "url": "/hyperbolator/static/css/main.7d9e2ef2.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/hyperbolator/static/js/2.771a5218.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "b5a785bddb135be529a9",
-    "url": "/hyperbolator/static/js/main.89f1e127.chunk.js"
+    "revision": "deb16ca321ab0d241629",
+    "url": "/hyperbolator/static/js/main.18bb6ee3.chunk.js"
   },
   {
     "revision": "e0e1f832df21bd1fda76",
